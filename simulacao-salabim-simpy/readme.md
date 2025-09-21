@@ -2,6 +2,18 @@
 
 Este repositório contém exemplos de simulação de eventos discretos (DES) com as bibliotecas Python **Salabim** e **Simpy**. O objetivo é demonstrar cenários de processos logísticos e de Supply Chain em ambas as libs, explorando cenários e análise de métricas de performance em modelos de simulação discreta.
 
+## O Que é Simulação de Evento Discreto?
+
+Simulação de Evento Discreto (SED) é uma maneira de modelar sistemas complexos onde as coisas acontecem em momentos específicos e não de forma contínua. Pense em uma fila de banco ou em um centro de distribuição:
+
+Um caminhão chega para descarregar.
+
+Um operador inicia a separação de um pedido.
+
+A esteira de inspeção recebe um novo item.
+
+Em vez de modelar o tempo como uma linha contínua, a simulação avança apenas de um evento para o próximo. Isso é perfeito para testar cenários de logística e supply chain, pois nos permite entender o impacto de gargalos, diferentes políticas de operação e o tempo de espera em um ambiente virtual.
+
 ---
 
 ## Cenários
@@ -36,8 +48,6 @@ Este projeto utiliza um conjunto de bibliotecas e ferramentas para simulação, 
 A estrutura de pastas e arquivos está organizada da seguinte forma:
 
 ```
-
-.
 ├── src/
 │   ├── data/
 │   ├── features/
@@ -116,6 +126,3 @@ Se você prefere um ambiente isolado, use o Docker.
 ## Licença
 
 Este projeto é licenciado sob a licença **MIT**.
-
-```
-```
