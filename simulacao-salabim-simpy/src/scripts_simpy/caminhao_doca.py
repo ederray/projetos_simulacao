@@ -37,7 +37,6 @@ def caminhao(env, nome, doca):
         print(f'{nome}, terminou em: {tempo_saida:.2f}.')
 
         # armazenamento dos resultados
-
         resultados.append(
 
             {
@@ -71,7 +70,7 @@ def gerar_caminhao(env, doca):
 #-----CONSTRUÇÃO DO AMBIENTE
 
 env = simpy.Environment()
-doca = simpy.Resource(env, capacity=2)
+doca = simpy.Resource(env, capacity=1)
 
 # instancia da geracao de entidade no ambiente
 env.process(gerar_caminhao(env, doca))
