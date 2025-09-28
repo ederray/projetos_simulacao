@@ -50,7 +50,8 @@ A estrutura de pastas e arquivos está organizada da seguinte forma:
 ```
 ├── src/
 │   ├── data/
-│   ├── features/
+│   ├── scripts_salabim/
+│   ├── scripts_simpy/
 │   ├── visualize/
 │   └── utils/
 ├── notebooks/
