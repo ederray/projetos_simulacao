@@ -30,7 +30,7 @@ def caminhao(env, nome, doca):
         tempo_descarregamento = np.random.exponential(5)
 
         # evento tempo de serviço
-        yield env.timeout(tempo_descarregamento)
+        yield env.timeout(tempo_descarregamento) # agendamento do evento
 
         # saída: libera o recurso automaticamente
         tempo_saida = env.now
@@ -64,12 +64,14 @@ def gerar_caminhao(env, doca):
     while True:
         yield env.timeout(np.random.exponential(scale=10.0))
         i+=1
-        # instancia de um novo caminhao no evento de chegada
+        # processo: corrotinas
         env.process(caminhao(env=env, nome=f'caminhao {i}', doca=doca))
 
 #-----CONSTRUÇÃO DO AMBIENTE
 
 env = simpy.Environment()
+
+# tipo de recurso
 doca = simpy.Resource(env, capacity=1)
 
 # instancia da geracao de entidade no ambiente

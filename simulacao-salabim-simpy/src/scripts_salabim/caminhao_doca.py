@@ -7,13 +7,14 @@ import numpy as np
 #-----CONSTRUÇÃO DA ENTIDADE: OBJETO EM MOVIMENTAÇÃO NO SISTEMA
 class Caminhao(sim.Component):
 
+    # processo: corrotinas
     def process(self):
 
         # evento: chegada
         tempo_chegada = env.now()
         print(f'{self.name()} chegou na doca em {tempo_chegada:.2f}')
 
-        # recurso: doca
+        # pedido pelo uso do recurso: doca
         yield self.request(doca)
 
         # evento: espera liberação do recurso
@@ -21,9 +22,9 @@ class Caminhao(sim.Component):
         print(f'{self.name()} aguardou a liberação da doca por: {espera:.2f}')
 
         # evento: descarregamento
-        yield self.hold(np.random.exponential(10))
+        yield self.hold(np.random.exponential(10)) # agendamento do evento
 
-        # evento: saída do recurso
+        # evento: saída do recurso e liberação do recurso
         yield self.release()
 
 
@@ -37,6 +38,7 @@ class GeradorCaminhao(sim.Component):
             # evento: tempo entre chegada
             yield self.hold(np.random.exponential(20))
             i+=1
+            # entidade do sistema
             Caminhao(name=f'Caminhao {i}')
 
 
